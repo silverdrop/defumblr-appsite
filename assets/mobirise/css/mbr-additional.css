@@ -295,11 +295,16 @@ h5 {
 	top: 8.6%;
     left: 11.8%;
     width: 74%;
-    height: 77%;
+    height: 77.1%;
 }
 #msg-box4-9 .video-player img.iphone-screen {
 	width: 100%;
 }
+#msg-box4-9 .video-player img.iphone-screen-dp {
+	width: 100%;
+	visibility: hidden;
+}
+#msg-box4-9 .video-player .splash-screen,
 #msg-box4-9 .video-player .youtube-video {
 	position: absolute;
 	left: 0;

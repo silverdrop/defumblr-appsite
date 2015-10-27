@@ -435,3 +435,41 @@
     });
 
 })(jQuery);
+
+
+//youtube script
+var tag = document.createElement('script');
+tag.src = "//www.youtube.com/iframe_api";
+var firstScriptTag = document.getElementsByTagName('script')[0];
+firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+var player;
+
+onYouTubeIframeAPIReady = function () {
+    player = new YT.Player('youtube_video', {
+        height: '480',
+        width: '640',
+        videoId: '9lOaAvLHKM0',  // youtube video id
+        playerVars: {
+            'autoplay': 0,
+            'rel': 0,
+            'showinfo': 0,
+            'controls': 0
+        },
+        events: {
+            'onStateChange': onPlayerStateChange
+        }
+    });
+}
+
+onPlayerStateChange = function (event) {
+    if (event.data == YT.PlayerState.ENDED) {
+        $('.splash-screen').fadeIn('normal');
+    }
+}
+
+$(document).on('click', '.splash-screen .btn', function () {
+    $('.splash-screen').fadeOut('normal');
+    player.playVideo();
+    return false;
+});
